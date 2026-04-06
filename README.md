@@ -1,60 +1,105 @@
-# XemLuong - Ứng dụng Quản lý Phiếu Lương Tự Động
+# 💰 XemLuong - Giải Pháp Theo Dõi Thu Nhập Tự Động Từ Email
 
-**XemLuong** là một ứng dụng di động được xây dựng bằng Flutter, giúp bạn tự động hóa việc theo dõi thu nhập và ngày phép hàng tháng bằng cách quét email từ hòm thư cá nhân.
+![XemLuong Logo](assets/images/logo.png)
 
-![App Screenshot](assets/images/image.png)
+**XemLuong** là ứng dụng di động được phát triển bằng Flutter, giúp người dùng tự động hóa việc quản lý và theo dõi lịch sử lương hàng tháng. Thay vì phải lục tìm email và tải file thủ công, XemLuong sẽ tự động quét hòm thư, sử dụng trí tuệ nhân tạo (OCR) để trích xuất dữ liệu và hiển thị lên một giao diện hiện đại, chuyên nghiệp.
 
-## 🚀 Tính năng nổi bật
+---
 
-- **Tự động quét Email**: Kết nối với Gmail (qua giao thức IMAP) để tìm các email phiếu lương từ người gửi được cấu hình.
-- **Trích xuất dữ liệu bằng AI (OCR)**: Sử dụng Google ML Kit để nhận diện văn bản từ ảnh phiếu lương (Net Salary, Phép năm còn lại).
-- **Giao diện Premium**: Thiết kế hiện đại với chế độ Dark Mode, hiệu ứng Glassmorphism và các micro-animations mượt mà.
-- **Xử lý thông minh**: 
-  - Hỗ trợ các phiếu lương đa dạng định dạng (bao gồm ảnh đính kèm, TIFF nhiều trang).
-  - Tự động nhận diện và xử lý riêng biệt cho **Tháng 13/Tháng thưởng** (không hiển thị thừa ngày phép).
-- **Lưu trữ cục bộ**: Lưu lịch sử lương vào bộ nhớ máy, cho phép xem lại nhanh chóng mà không cần kết nối internet.
+## ✨ Tính năng chính
 
-## 🛠 Công nghệ sử dụng
+### 📥 1. Tự Động Kết Nối & Quét Email
+- Kết nối bảo mật tới Gmail thông qua giao thức **IMAP**.
+- Tìm kiếm thông minh các email từ nhà tuyển dụng/công ty (dựa trên địa chỉ người gửi được cấu hình).
+- Tự động lọc các email có tiêu đề liên quan đến "Lương" hoặc "Salary".
 
-- **Flutter & Dart**: Framework phát triển ứng dụng di động.
-- **Google ML Kit**: Sử dụng `Text Recognition` để xử lý OCR.
-- **Enough Mail**: Thư viện xử lý IMAP để đọc email an toàn.
-- **Shared Preferences**: Lưu trữ dữ liệu đơn giản trên thiết bị.
-- **Google Fonts**: Phông chữ Inter hiện đại và chuyên nghiệp.
+### 🔎 2. Trích Xuất Dữ Liệu AI (OCR)
+- Sử dụng **Google ML Kit Text Recognition** để đọc nội dung từ:
+  - Ảnh đính kèm (JPG, PNG).
+  - Các file ảnh định dạng **TIFF** nhiều trang (thường gặp trong hệ thống quản lý lương doanh nghiệp).
+- Thuật toán thông minh tự động nhận diện:
+  - **Tháng lương**: Phân biệt chính xác tháng thường và tháng thưởng (Tháng 13/14).
+  - **Thực lãnh (Net Salary)**: Tự động tìm kiếm con số tổng thanh toán cuối cùng.
+  - **Phép năm còn lại**: Trích xuất số ngày phép chưa sử dụng.
 
-## 📦 Hướng dẫn cài đặt
+### 📊 3. Quản Lý Lịch Sử Tiền Lương
+- Lưu trữ toàn bộ dữ liệu vào bộ nhớ máy (**Shared Preferences**), cho phép truy cập ngay lập tức kể cả khi không có mạng.
+- Giao diện danh sách lịch sử theo thời gian, giúp bạn dễ dàng so sánh thu nhập giữa các tháng.
+
+### 🎨 4. Trải Nghiệm Người Dùng (UX/UI) Cao Cấp
+- **Chế độ Dark Mode**: Giao diện tối huyền bí, sang trọng và bảo vệ mắt.
+- **Micro-Animations**: Các hiệu ứng chuyển động mượt mà, Pulse animations khi đang tải dữ liệu.
+- **Responsive Design**: Tự động hiển thị đẹp mắt trên mọi kích thước màn hình điện thoại.
+
+---
+
+## 🛠 Công nghệ & Thư viện sử dụng
+
+| Công nghệ | Mục đích |
+| :--- | :--- |
+| **Flutter 3.x** | Framework chính để phát triển ứng dụng Cross-platform. |
+| **Google ML Kit** | Xử lý OCR (Nhận diện văn bản từ hình ảnh) mạnh mẽ. |
+| **Enough Mail** | Xử lý giao thức IMAP an toàn và hiệu quả cao. |
+| **Image (Dart)** | Giải mã hình ảnh, xử lý các file TIFF phức tạp. |
+| **Google Fonts** | Phông chữ `Inter` chuyên nghiệp và hiện đại. |
+| **Shared Preferences** | Lưu trữ dữ liệu lịch sử bền vững trên thiết bị. |
+
+---
+
+## 🚀 Hướng Dẫn Cài Đặt & Chạy
 
 ### 1. Yêu cầu hệ thống
-- Flutter SDK: ^3.6.2
-- Android SDK: 35 (hoặc mới hơn)
-- Gmail App Password (để bảo mật thay vì dùng mật khẩu chính).
+- **Flutter SDK**: `>=3.6.2`
+- **Android SDK**: `Level 35` (Yêu cầu để tương thích với ML Kit mới nhất).
+- **Thiết bị**: Android 6.0+ trở lên.
 
-### 2. Cấu hình
-Mở file `lib/salary_service.dart` và cập nhật thông tin email của bạn:
+### 2. Chuẩn bị tài khoản Gmail
+Để ứng dụng có thể đọc mail, bạn cần:
+1.  Bật **Xác minh 2 bước** trên tài khoản Google.
+2.  Tạo **Mật khẩu ứng dụng (App Password)**:
+    - Truy cập [My Account Google](https://myaccount.google.com/apppasswords).
+    - Chọn "Mail" và "Trình thiết bị: Khác".
+    - Lưu lại chuỗi 16 ký tự được cung cấp.
+
+### 3. Cấu hình Code
+Mở file `lib/salary_service.dart` và cập nhật thông tin sau:
 ```dart
-static const String mailEmail = 'your-email@gmail.com';
-static const String mailPassword = 'your-app-password'; 
-static const String expectedSender = 'sender@company.com';
+static const String mailEmail = 'tandungluu338@gmail.com'; // Email của bạn
+static const String mailPassword = 'your-app-password';     // Mật khẩu ứng dụng 16 ký tự
+static const String expectedSender = 'lg.la@tpgroup.com.vn'; // Email người gửi phiếu lương
 ```
 
-### 3. Chạy ứng dụng
+### 4. Lệnh Build
 ```bash
+# Lấy các dependencies
 flutter pub get
-flutter run
-```
 
-### 4. Build APK
-```bash
+# Chạy ở chế độ Debug
+flutter run
+
+# Tạo file APK để cài đặt
 flutter build apk --debug
 ```
 
-## 📝 Nhật ký thay đổi gần đây
-- **Sửa lỗi hiển thị phép năm**: Tháng 13/14 hiện hiển thị `--` thay vì các con số nhận nhầm ngẫu nhiên.
-- **Tối ưu hóa Regex**: Nhận diện tháng và năm chính xác hơn, tránh nhận nhầm các tháng 01, 11, 12.
-- **Cải thiện UI**: Hiển thị trạng thái cập nhật thời gian thực từ mail.
+---
 
-## 🤝 Đóng góp
-Nếu bạn có bất kỳ ý tưởng gớp ý nào, hãy tạo một Issue hoặc gửi Pull Request!
+## 🛡 Xử lý bảo mật & Quyền riêng tư
+- **Không lưu mật khẩu chính**: Ứng dụng khuyên dùng App Password để bảo vệ tài khoản Gmail.
+- **Dữ liệu cục bộ**: Toàn bộ lịch sử lương chỉ được lưu trên thiết bị của bạn, không được gửi đi bất kỳ máy chủ nào khác.
+- **OCR On-Device**: Việc nhận diện hình ảnh diễn ra ngay trên điện thoại, không thông qua API đám mây nhằm đảm bảo tính riêng tư.
 
 ---
-*Phát triển bởi Antigravity AI Assistant.*
+
+## 📝 Nhật ký cập nhật gần đây
+- ✅ **Version 1.1**: Sửa lỗi hiển thị phép năm ở Tháng 13/14 (hiển thị `--` để tránh sai sót).
+- ✅ **Version 1.0**: Hoàn thiện tính năng quét OCR từ file TIFF nhiều trang.
+- ✅ **UI Update**: Thêm hiệu ứng Glassmorphism cho các thẻ hiển thị thu nhập.
+
+---
+
+## 📧 Liên hệ
+- **Tác giả**: [ngocthienluu](https://github.com/ngocthienluu)
+- **Email hỗ trợ**: [tandungluu338@gmail.com]
+
+---
+*Phát triển bởi Antigravity AI với sự phối hợp cùng người dùng.*
