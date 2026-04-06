@@ -2,7 +2,7 @@
 
 **XemLuong** là một ứng dụng di động được xây dựng bằng Flutter, giúp bạn tự động hóa việc theo dõi thu nhập và ngày phép hàng tháng bằng cách quét email từ hòm thư cá nhân.
 
-![App Screenshot](https://raw.githubusercontent.com/username/repo/main/screenshots/demo.png) *(Vui lòng cập nhật link ảnh thực tế)*
+![App Screenshot](assets/images/image.png)
 
 ## 🚀 Tính năng nổi bật
 
